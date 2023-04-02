@@ -7,5 +7,15 @@ import { defineStore } from 'pinia'
 export default defineStore('modal', {
     state: () => ({
         isOpen: false
-    })
+    }),
+    getters: {
+        /*
+        Getters
+        Think of them as computed properties for yor store  
+        and it's accessible in all components
+        */
+        hiddenClass(state) {
+            return !state.isOpen ? 'hidden' : '';
+        },
+    },
 })
