@@ -10,7 +10,9 @@
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
           <li>
-            <a class="px-2 text-white" href="#">Login / Register</a>
+            <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal"
+              >Login / Register</a
+            >
           </li>
           <li>
             <a class="px-2 text-white" href="#">Manage</a>
@@ -22,9 +24,28 @@
 </template>
 
 <script>
+import { mapStores } from 'pinia';
+import  useModalStore  from '@/stores/modal';
+
+/* 
+mapStores gives us permission to access the state 
+defined in modalJs
+"..." is called spreadOperator and it's used to map functions together
+"modalStore" is gotten from modalJs file.
+Note: "modal" was defined as the ID but it was appended with Store.
+Dude that how "pinia guy" rolls. lol 
+*/
+
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  computed: {
+    ...mapStores(useModalStore),
+  },
+  methods: {
+    toggleAuthModal() {
+      this.modalStore.isOpen = !this.modalStore.isOpen
+       console.log(this.modalStore.isOpen)
+    }
+  }
 }
 </script>
-
-<style></style>
