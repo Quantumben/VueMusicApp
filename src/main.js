@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import VeeValidatePlugin from './includes/validation'
 
 import './assets/base.css'
 
@@ -18,5 +19,6 @@ It is done by using the function "use()"
 
 app.use(createPinia())
 app.use(router)
+app.use(VeeValidatePlugin)
 
 app.mount('#app')
