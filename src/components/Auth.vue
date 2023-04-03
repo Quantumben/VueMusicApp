@@ -83,7 +83,7 @@
           <!-- Registration Form -->
           <vee-form v-show="tab === 'register'" :validation-schema="schema">
             <!-- Name -->
-            <div class="mb-3"> 
+            <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
               <vee-field
                 name="name"
@@ -167,14 +167,13 @@ export default {
     return {
       tab: 'login',
       schema: {
-        name: 'required',
+        name: 'required|min:3|max:100|alpha_spaces',
         email: '',
         age: '',
         password: '',
         confirm_password: '',
         country: '',
-        tos: '',
-
+        tos: ''
       }
     }
   },
