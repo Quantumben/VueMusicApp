@@ -81,8 +81,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <vee-form v-show="tab === 'register'" :validation-schema="schema"
-          @submit="register">
+          <vee-form v-show="tab === 'register'" :validation-schema="schema" @submit="register">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -109,7 +108,7 @@
             <div class="mb-3">
               <label class="inline-block mb-2">Age</label>
               <vee-field
-               name="age"
+                name="age"
                 type="number"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
               />
@@ -119,7 +118,7 @@
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
               <vee-field
-              name="password"
+                name="password"
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Password"
@@ -130,7 +129,7 @@
             <div class="mb-3">
               <label class="inline-block mb-2">Confirm Password</label>
               <vee-field
-              name="confirm_password"
+                name="confirm_password"
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Confirm Password"
@@ -140,8 +139,9 @@
             <!-- Country -->
             <div class="mb-3">
               <label class="inline-block mb-2">Country</label>
-              <vee-field as="select"
-              name="country"
+              <vee-field
+                as="select"
+                name="country"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
               >
                 <option value="USA">USA</option>
@@ -153,7 +153,12 @@
             </div>
             <!-- TOS -->
             <div class="mb-3 pl-6">
-              <vee-field name="tos" value="1" type="checkbox" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
+              <vee-field
+                name="tos"
+                value="1"
+                type="checkbox"
+                class="w-4 h-4 float-left -ml-6 mt-1 rounded"
+              />
               <label class="inline-block">Accept terms of service</label>
               <ErrorMessage class="text-red-600 block" name="tos" />
             </div>
@@ -197,8 +202,8 @@ export default {
     })
   },
   methods: {
-    register(values){
-console.log(values)
+    register(values) {
+      console.log(values)
     }
   }
 }
