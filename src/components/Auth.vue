@@ -54,24 +54,32 @@
           </ul>
 
           <!-- Login Form -->
-          <form v-show="tab === 'login'">
+          <vee-form v-show="tab === 'login'"
+          :validation-schema="loginSchema"
+          @submit="login"
+          >
             <!-- Email -->
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
-              <input
+              <vee-field
+                name="email"
                 type="email"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Email"
               />
+
+              <ErrorMessage class="text-red-600" name="email" />
             </div>
             <!-- Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
-              <input
+              <vee-field
+                name="password"
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Password"
               />
+              <ErrorMessage class="text-red-600" name="password" />
             </div>
             <button
               type="submit"
@@ -79,7 +87,7 @@
             >
               Submit
             </button>
-          </form>
+          </vee-form>
           <!-- Registration Form -->
 
           <div
@@ -206,6 +214,7 @@ export default {
   data() {
     return {
       tab: 'login',
+
       schema: {
         name: 'required|min:3|max:100|alpha_spaces',
         email: 'required|min:3|max:100|email',
@@ -215,13 +224,20 @@ export default {
         country: 'required|country_excluded:Antarctica',
         tos: 'tos'
       },
+
       userData: {
         country: 'USA'
       },
+
       reg_in_submission: false,
       reg_show_alert: false,
       reg_alert_variant: 'bg-blue-500',
-      reg_alert_msg: 'Please wait! Your account is being created.'
+      reg_alert_msg: 'Please wait! Your account is being created.',
+      
+      loginSchema:{
+        email: 'required|email',
+        password: 'required|min:9|max:100',
+      }
     }
   },
   computed: {
@@ -241,6 +257,9 @@ export default {
       this.reg_alert_msg = 'Success! Your account has been created.'
 
       console.log(values) 
+    }, 
+    login(values){
+      console.log(values)
     }
   }
 }
