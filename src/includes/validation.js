@@ -55,7 +55,11 @@ export default {
                     `The field ${ctx.field} is invalid`;
 
                 return message;
-            }
+            },
+            validateOnBlur: true, //Tells VeeValidate to validate field on the blur event
+            validateOnChange: true, //Tells VeeValidate to validate field on the change event
+            validateOnInput: true, //Tells VeeValidate to Fire error on every keystroke
+            validateOnModelUpdate: true, //Tells VeeValidate to validate input when-ever the value changes
         })
     }
 }
