@@ -198,7 +198,7 @@ export default {
         name: 'required|min:3|max:100|alpha_spaces',
         email: 'required|min:3|max:100|email',
         age: 'required|min_value:18|max_value:100',
-        password: 'required|min:9|max:100',
+        password: 'required|min:9|max:100|not_one_of:password',
         confirm_password: 'confirmed:@password',
         country: 'required|not_one_of:Antarctica',
         tos: 'required'
